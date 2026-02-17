@@ -69,7 +69,7 @@ export function FullLayout() {
               color={"white"}
             />
             <div className="flex items-center gap-2">
-              <img src="/src/assets/logo.png" alt="Logo" className="h-8 w-12" />
+              <img src="/logo.png" alt="Logo" className="h-8 w-12" />
               <Text fw={700} size="xl" c="white">
                 GreenMarket
               </Text>
