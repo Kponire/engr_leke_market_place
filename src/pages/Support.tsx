@@ -74,9 +74,9 @@ const Support = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <div>
+    <div className="px-1 sm:px-9 pt-5">
+      <div className="sm:flex sm:items-center sm:justify-between mb-6">
+        <div className="mb-4 sm:mb-0">
           <h1 className="text-2xl font-semibold text-primary-900">
             Customer Support
           </h1>
@@ -184,52 +184,54 @@ const Support = () => {
           />
         </div>
 
-        <Table striped highlightOnHover>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Ticket #</Table.Th>
-              <Table.Th>Customer</Table.Th>
-              <Table.Th>Subject</Table.Th>
-              <Table.Th>Priority</Table.Th>
-              <Table.Th>Status</Table.Th>
-              <Table.Th>Created</Table.Th>
-              <Table.Th>Last Updated</Table.Th>
-              <Table.Th>Actions</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {filteredTickets.map((ticket) => (
-              <Table.Tr key={ticket.id}>
-                <Table.Td className="font-medium">
-                  {ticket.ticketNumber}
-                </Table.Td>
-                <Table.Td>{ticket.customer}</Table.Td>
-                <Table.Td>{ticket.subject}</Table.Td>
-                <Table.Td>
-                  <Text c={getPriorityColor(ticket.priority)}>
-                    {ticket.priority}
-                  </Text>
-                </Table.Td>
-                <Table.Td>
-                  <Text c={getStatusColor(ticket.status)}>
-                    {ticket.status.replace("_", " ")}
-                  </Text>
-                </Table.Td>
-                <Table.Td>
-                  {new Date(ticket.createdAt).toLocaleDateString()}
-                </Table.Td>
-                <Table.Td>
-                  {new Date(ticket.lastUpdated).toLocaleDateString()}
-                </Table.Td>
-                <Table.Td>
-                  <Button variant="subtle" size="xs">
-                    View
-                  </Button>
-                </Table.Td>
+        <Table.ScrollContainer minWidth={500}>
+          <Table striped highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Ticket #</Table.Th>
+                <Table.Th>Customer</Table.Th>
+                <Table.Th>Subject</Table.Th>
+                <Table.Th>Priority</Table.Th>
+                <Table.Th>Status</Table.Th>
+                <Table.Th>Created</Table.Th>
+                <Table.Th>Last Updated</Table.Th>
+                <Table.Th>Actions</Table.Th>
               </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
+            </Table.Thead>
+            <Table.Tbody>
+              {filteredTickets.map((ticket) => (
+                <Table.Tr key={ticket.id}>
+                  <Table.Td className="font-medium">
+                    {ticket.ticketNumber}
+                  </Table.Td>
+                  <Table.Td>{ticket.customer}</Table.Td>
+                  <Table.Td>{ticket.subject}</Table.Td>
+                  <Table.Td>
+                    <Text c={getPriorityColor(ticket.priority)}>
+                      {ticket.priority}
+                    </Text>
+                  </Table.Td>
+                  <Table.Td>
+                    <Text c={getStatusColor(ticket.status)}>
+                      {ticket.status.replace("_", " ")}
+                    </Text>
+                  </Table.Td>
+                  <Table.Td>
+                    {new Date(ticket.createdAt).toLocaleDateString()}
+                  </Table.Td>
+                  <Table.Td>
+                    {new Date(ticket.lastUpdated).toLocaleDateString()}
+                  </Table.Td>
+                  <Table.Td>
+                    <Button variant="subtle" size="xs">
+                      View
+                    </Button>
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
       </Card>
 
       <Modal

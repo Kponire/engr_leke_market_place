@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  Table,
-  Button,
-  TextInput,
-  Select,
-  Text,
-} from "@mantine/core";
+import { Card, Table, Button, TextInput, Select, Text } from "@mantine/core";
 import { inventory } from "../data/dummyData";
 import { FiPackage, FiSearch, FiAlertTriangle, FiPlus } from "react-icons/fi";
 
@@ -45,9 +38,9 @@ const Inventory = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <div>
+    <div className="px-1 sm:px-9 pt-5">
+      <div className="sm:flex sm:items-center sm:justify-between mb-6">
+        <div className="mb-4 sm:mb-0">
           <h1 className="text-2xl font-semibold text-primary-900">
             Inventory Management
           </h1>
@@ -142,56 +135,58 @@ const Inventory = () => {
           />
         </div>
 
-        <Table striped highlightOnHover>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Product</Table.Th>
-              <Table.Th>SKU</Table.Th>
-              <Table.Th>Quantity</Table.Th>
-              <Table.Th>Reorder Level</Table.Th>
-              <Table.Th>Location</Table.Th>
-              <Table.Th>Last Restocked</Table.Th>
-              <Table.Th>Status</Table.Th>
-              <Table.Th>Actions</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {filteredInventory.map((item) => (
-              <Table.Tr key={item.id}>
-                <Table.Td className="font-medium">{item.product}</Table.Td>
-                <Table.Td>{item.sku}</Table.Td>
-                <Table.Td>
-                  <span
-                    className={`font-semibold ${
-                      item.quantity === 0
-                        ? "text-red-600"
-                        : item.quantity <= item.reorderLevel
-                          ? "text-yellow-600"
-                          : "text-green-600"
-                    }`}
-                  >
-                    {item.quantity}
-                  </span>
-                </Table.Td>
-                <Table.Td>{item.reorderLevel}</Table.Td>
-                <Table.Td>{item.location}</Table.Td>
-                <Table.Td>
-                  {new Date(item.lastRestocked).toLocaleDateString()}
-                </Table.Td>
-                <Table.Td>
-                  <Text c={getStatusColor(item.status)}>
-                    {item.status.replace("_", " ")}
-                  </Text>
-                </Table.Td>
-                <Table.Td>
-                  <Button variant="subtle" size="xs">
-                    Restock
-                  </Button>
-                </Table.Td>
+        <Table.ScrollContainer minWidth={500}>
+          <Table striped highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Product</Table.Th>
+                <Table.Th>SKU</Table.Th>
+                <Table.Th>Quantity</Table.Th>
+                <Table.Th>Reorder Level</Table.Th>
+                <Table.Th>Location</Table.Th>
+                <Table.Th>Last Restocked</Table.Th>
+                <Table.Th>Status</Table.Th>
+                <Table.Th>Actions</Table.Th>
               </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
+            </Table.Thead>
+            <Table.Tbody>
+              {filteredInventory.map((item) => (
+                <Table.Tr key={item.id}>
+                  <Table.Td className="font-medium">{item.product}</Table.Td>
+                  <Table.Td>{item.sku}</Table.Td>
+                  <Table.Td>
+                    <span
+                      className={`font-semibold ${
+                        item.quantity === 0
+                          ? "text-red-600"
+                          : item.quantity <= item.reorderLevel
+                            ? "text-yellow-600"
+                            : "text-green-600"
+                      }`}
+                    >
+                      {item.quantity}
+                    </span>
+                  </Table.Td>
+                  <Table.Td>{item.reorderLevel}</Table.Td>
+                  <Table.Td>{item.location}</Table.Td>
+                  <Table.Td>
+                    {new Date(item.lastRestocked).toLocaleDateString()}
+                  </Table.Td>
+                  <Table.Td>
+                    <Text c={getStatusColor(item.status)}>
+                      {item.status.replace("_", " ")}
+                    </Text>
+                  </Table.Td>
+                  <Table.Td>
+                    <Button variant="subtle" size="xs">
+                      Restock
+                    </Button>
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
       </Card>
     </div>
   );

@@ -1,12 +1,13 @@
 import { Text, Select, Stack, UnstyledButton, Box, Title } from "@mantine/core";
 import { TbChevronRight, TbPhoto } from "react-icons/tb";
 import classes from "../assets/css/pages.module.css";
+import { useMediaQuery } from "@mantine/hooks";
 
 const PublishProductPage = () => {
-  //const [images, setImages] = useState([]);
+  const matches = useMediaQuery("(min-width: 768px)");
 
   return (
-    <div className="px-9 pt-5">
+    <div className="px-1 sm:px-9 pt-5">
       <Title order={2} c="bright-green.9" fz={25}>
         Publish a product
       </Title>
@@ -29,12 +30,12 @@ const PublishProductPage = () => {
               border: "1px solid #828282",
               color: "var(--color-secondary)",
               fontSize: 16,
-              padding: "10px 50px 10px 100px",
+              padding: `${matches ? "10px 50px 10px 100px" : "10px 10px 10px 10px"}`,
               background: "#E0E0E0",
             },
             section: {
               pointerEvents: "none",
-              marginRight: "50px",
+              marginRight: `${matches ? "50px" : "10px"}`,
             },
           }}
         />
@@ -56,12 +57,12 @@ const PublishProductPage = () => {
               border: "1px solid #828282",
               color: "var(--color-secondary)",
               fontSize: 16,
-              padding: "10px 0px 10px 100px",
+              padding: `${matches ? "10px 50px 10px 100px" : "10px 10px 10px 10px"}`,
               background: "#E0E0E0",
             },
             section: {
               pointerEvents: "none",
-              marginRight: "50px",
+              marginRight: `${matches ? "50px" : "10px"}`,
             },
           }}
         />

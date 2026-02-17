@@ -6,7 +6,7 @@ import {
   Text,
   UnstyledButton,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { Outlet, useLocation } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { BiStore } from "react-icons/bi";
@@ -41,6 +41,7 @@ const NAV_ITEMS = [
 export function FullLayout() {
   const [opened, { toggle }] = useDisclosure();
   const location = useLocation();
+  const matches = useMediaQuery("(min-width: 768px)");
 
   return (
     <AppShell
@@ -70,9 +71,11 @@ export function FullLayout() {
             />
             <div className="flex items-center gap-2">
               <img src="/logo.png" alt="Logo" className="h-8 w-12" />
-              <Text fw={700} size="xl" c="white">
-                GreenMarket
-              </Text>
+              {matches && (
+                <Text fw={700} size="xl" c="white">
+                  GreenMarket
+                </Text>
+              )}
             </div>
           </Group>
 

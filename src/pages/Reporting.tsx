@@ -28,7 +28,7 @@ const Reporting = () => {
   };
 
   return (
-    <div>
+    <div className="px-1 sm:px-9 pt-5">
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-primary-900">
           Reporting & Analytics

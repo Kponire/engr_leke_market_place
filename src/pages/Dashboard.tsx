@@ -12,7 +12,7 @@ import { Button } from "@mantine/core";
 
 const Dashboard = () => {
   return (
-    <div className="px-9 pt-6">
+    <div className="px-1 sm:px-9 pt-6">
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-primary-900">
           Explore your business

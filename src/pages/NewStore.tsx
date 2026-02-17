@@ -32,7 +32,7 @@ const AriseAndShinePage = () => {
   };
 
   return (
-    <div className="px-9 pt-6">
+    <div className="px-2 sm:px-9 pt-6">
       <div className="mb-10">
         <h1 className="text-[25px] font-medium text-primary-900">
           Arise and Shine Enterprise
@@ -50,7 +50,7 @@ const AriseAndShinePage = () => {
         <Paper
           radius="md"
           withBorder
-          w={"563px"}
+          maw={"563px"}
           className="overflow-hidden mb-8"
         >
           <div className="bg-[#BDBDBD] h-64 flex items-center justify-center">
@@ -58,7 +58,7 @@ const AriseAndShinePage = () => {
               radius="md"
               src={null}
               h={"146px"}
-              w="122px"
+              maw="122px"
               fit="contain"
               fallbackSrc={nullImage}
             />

@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  Table,
-  Button,
-  Select,
-  TextInput,
-  Text,
-} from "@mantine/core";
+import { Card, Table, Button, Select, TextInput, Text } from "@mantine/core";
 import { payments } from "../data/dummyData";
 import { FiCreditCard, FiSearch, FiDownload, FiFilter } from "react-icons/fi";
 const Payment = () => {
@@ -48,9 +41,9 @@ const Payment = () => {
     return <FiCreditCard className="inline mr-1" />;
   };
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <div>
+    <div className="px-1 sm:px-9 pt-5">
+      <div className="sm:flex sm:items-center sm:justify-between mb-6">
+        <div className="mb-4 sm:mb-0">
           <h1 className="text-2xl font-semibold text-primary-900">
             Payment Management
           </h1>
@@ -122,54 +115,55 @@ const Payment = () => {
             className="w-48"
           />
         </div>
-
-        <Table striped highlightOnHover>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Transaction ID</Table.Th>
-              <Table.Th>Customer</Table.Th>
-              <Table.Th>Order Number</Table.Th>
-              <Table.Th>Amount</Table.Th>
-              <Table.Th>Method</Table.Th>
-              <Table.Th>Date</Table.Th>
-              <Table.Th>Status</Table.Th>
-              <Table.Th>Actions</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {filteredPayments.map((payment) => (
-              <Table.Tr key={payment.id}>
-                <Table.Td className="font-medium">
-                  {payment.transactionId}
-                </Table.Td>
-                <Table.Td>{payment.customer}</Table.Td>
-                <Table.Td>{payment.orderNumber}</Table.Td>
-                <Table.Td className="font-semibold text-gray-900">
-                  ${payment.amount.toFixed(2)}
-                </Table.Td>
-                <Table.Td>
-                  {getMethodIcon()}
-                  <span className="capitalize">
-                    {payment.method.replace("_", " ")}
-                  </span>
-                </Table.Td>
-                <Table.Td>
-                  {new Date(payment.date).toLocaleDateString()}
-                </Table.Td>
-                <Table.Td>
-                  <Text fw={500} c={getStatusColor(payment.status)}>
-                    {payment.status}
-                  </Text>
-                </Table.Td>
-                <Table.Td>
-                  <Button variant="subtle" size="xs">
-                    View
-                  </Button>
-                </Table.Td>
+        <Table.ScrollContainer minWidth={500}>
+          <Table striped highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Transaction ID</Table.Th>
+                <Table.Th>Customer</Table.Th>
+                <Table.Th>Order Number</Table.Th>
+                <Table.Th>Amount</Table.Th>
+                <Table.Th>Method</Table.Th>
+                <Table.Th>Date</Table.Th>
+                <Table.Th>Status</Table.Th>
+                <Table.Th>Actions</Table.Th>
               </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
+            </Table.Thead>
+            <Table.Tbody>
+              {filteredPayments.map((payment) => (
+                <Table.Tr key={payment.id}>
+                  <Table.Td className="font-medium">
+                    {payment.transactionId}
+                  </Table.Td>
+                  <Table.Td>{payment.customer}</Table.Td>
+                  <Table.Td>{payment.orderNumber}</Table.Td>
+                  <Table.Td className="font-semibold text-gray-900">
+                    ${payment.amount.toFixed(2)}
+                  </Table.Td>
+                  <Table.Td>
+                    {getMethodIcon()}
+                    <span className="capitalize">
+                      {payment.method.replace("_", " ")}
+                    </span>
+                  </Table.Td>
+                  <Table.Td>
+                    {new Date(payment.date).toLocaleDateString()}
+                  </Table.Td>
+                  <Table.Td>
+                    <Text fw={500} c={getStatusColor(payment.status)}>
+                      {payment.status}
+                    </Text>
+                  </Table.Td>
+                  <Table.Td>
+                    <Button variant="subtle" size="xs">
+                      View
+                    </Button>
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
       </Card>
     </div>
   );
