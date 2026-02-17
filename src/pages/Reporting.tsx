@@ -108,36 +108,43 @@ const Reporting = () => {
         <h2 className="text-xl font-semibold text-primary-900 mb-4">
           Recent Orders
         </h2>
-        <Table striped highlightOnHover>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Order Number</Table.Th>
-              <Table.Th>Customer</Table.Th>
-              <Table.Th>Date</Table.Th>
-              <Table.Th>Items</Table.Th>
-              <Table.Th>Total</Table.Th>
-              <Table.Th>Status</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {orders.map((order) => (
-              <Table.Tr key={order.id}>
-                <Table.Td className="font-medium">{order.orderNumber}</Table.Td>
-                <Table.Td>{order.customer}</Table.Td>
-                <Table.Td>{new Date(order.date).toLocaleDateString()}</Table.Td>
-                <Table.Td>{order.items}</Table.Td>
-                <Table.Td className="font-semibold">
-                  ${order.total.toFixed(2)}
-                </Table.Td>
-                <Table.Td>
-                  <Text fw={700} c={getStatusColor(order.status)}>
-                    {order.status}
-                  </Text>
-                </Table.Td>
+
+        <Table.ScrollContainer minWidth={500}>
+          <Table striped highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Order Number</Table.Th>
+                <Table.Th>Customer</Table.Th>
+                <Table.Th>Date</Table.Th>
+                <Table.Th>Items</Table.Th>
+                <Table.Th>Total</Table.Th>
+                <Table.Th>Status</Table.Th>
               </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
+            </Table.Thead>
+            <Table.Tbody>
+              {orders.map((order) => (
+                <Table.Tr key={order.id}>
+                  <Table.Td className="font-medium">
+                    {order.orderNumber}
+                  </Table.Td>
+                  <Table.Td>{order.customer}</Table.Td>
+                  <Table.Td>
+                    {new Date(order.date).toLocaleDateString()}
+                  </Table.Td>
+                  <Table.Td>{order.items}</Table.Td>
+                  <Table.Td className="font-semibold">
+                    ${order.total.toFixed(2)}
+                  </Table.Td>
+                  <Table.Td>
+                    <Text fw={700} c={getStatusColor(order.status)}>
+                      {order.status}
+                    </Text>
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
       </Card>
     </div>
   );
