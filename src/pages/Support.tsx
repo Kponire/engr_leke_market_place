@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Card,
   Table,
-  Badge,
   Button,
   TextInput,
   Select,

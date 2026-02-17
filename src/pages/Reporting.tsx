@@ -1,4 +1,4 @@
-import { Card, Grid, Table, Badge, Text } from "@mantine/core";
+import { Card, Grid, Table, Text } from "@mantine/core";
 import { orders } from "../data/dummyData";
 import {
   FiTrendingUp,
