@@ -1,12 +1,13 @@
 import { Text, Select, Stack, UnstyledButton, Box, Title } from "@mantine/core";
 import { TbChevronRight, TbPhoto } from "react-icons/tb";
+import classes from "../assets/css/pages.module.css";
 
 const PublishProductPage = () => {
   //const [images, setImages] = useState([]);
 
   return (
     <div className="px-9 pt-5">
-      <Title order={2} style={{ color: "#1D1D1D0", fontSize: "25px" }}>
+      <Title order={2} c="bright-green.9" fz={25}>
         Publish a product
       </Title>
 
@@ -14,14 +15,19 @@ const PublishProductPage = () => {
         {/* Category Selection */}
         <Select
           placeholder="Category"
-          rightSection={<TbChevronRight size={18} />}
+          rightSection={
+            <TbChevronRight size={18} color="var(--color-secondary)" />
+          }
           data={["Electronics", "Food & Groceries", "Fashion", "Home Decor"]}
-          styles={() => ({
+          classNames={{
+            input: classes.publishLocationSelect,
+          }}
+          styles={{
             input: {
               height: "56px",
               borderRadius: "8px",
               border: "1px solid #828282",
-              color: "#828282",
+              color: "var(--color-secondary)",
               fontSize: 16,
               padding: "10px 50px 10px 100px",
               background: "#E0E0E0",
@@ -30,37 +36,34 @@ const PublishProductPage = () => {
               pointerEvents: "none",
               marginRight: "50px",
             },
-          })}
+          }}
         />
 
         {/* Location Selection */}
         <Select
           placeholder="Select Location"
-          rightSection={<TbChevronRight size={18} />}
+          rightSection={
+            <TbChevronRight size={18} color="var(--color-secondary)" />
+          }
           data={["PortHarcourt", "Lagos", "Abuja", "Kano"]}
-          styles={() => ({
-            root: {
-              "::placeholder": {
-                color: "black",
-              },
-            },
+          classNames={{
+            input: classes.publishLocationSelect,
+          }}
+          styles={{
             input: {
               height: 56,
               borderRadius: "8px",
               border: "1px solid #828282",
-              color: "black",
+              color: "var(--color-secondary)",
               fontSize: 16,
               padding: "10px 0px 10px 100px",
               background: "#E0E0E0",
-              "::placeholder": {
-                color: "black",
-              },
             },
             section: {
               pointerEvents: "none",
               marginRight: "50px",
             },
-          })}
+          }}
         />
 
         {/* Photo Upload Section */}
@@ -75,9 +78,9 @@ const PublishProductPage = () => {
               height: "6rem",
               borderWidth: "2px",
               borderStyle: "dashed",
-              borderColor: "#9CA3AF", // border-gray-400
-              borderRadius: "0.5rem", // rounded-lg
-              backgroundColor: "#F3F4F6", // bg-gray-100
+              borderColor: "#9CA3AF",
+              borderRadius: "0.5rem",
+              backgroundColor: "#F3F4F6",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -93,14 +96,13 @@ const PublishProductPage = () => {
             onClick={() => console.log("Upload triggered")}
           >
             <TbPhoto size={32} className="text-gray-500" />
-            <Text size="xs" c="dimmed" mt={4}>
+            <Text size="xs" mt={4}>
               upload
             </Text>
           </UnstyledButton>
 
           <Text
             fz={16}
-            c="#4F4F4F"
             mt="xl"
             style={{ maxWidth: "400px", lineHeight: "24px" }}
           >

@@ -21,7 +21,7 @@ const ActivityCard = ({ item }: ActivityCardProps) => {
           />
           <div>
             {/* <h4 className="font-medium text-base text-black">{item.title}</h4> */}
-            <p className="text-sm text-black pt-1">{item.description}</p>
+            <p className="text-sm text-primary-900 pt-1">{item.description}</p>
           </div>
         </div>
       </div>

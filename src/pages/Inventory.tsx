@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Card, Table, Badge, Button, TextInput, Select } from "@mantine/core";
+import {
+  Card,
+  Table,
+  Badge,
+  Button,
+  TextInput,
+  Select,
+  Text,
+} from "@mantine/core";
 import { inventory } from "../data/dummyData";
 import { FiPackage, FiSearch, FiAlertTriangle, FiPlus } from "react-icons/fi";
 
@@ -41,7 +49,7 @@ const Inventory = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">
+          <h1 className="text-2xl font-semibold text-primary-900">
             Inventory Management
           </h1>
           <p className="text-gray-600 mt-1">
@@ -63,8 +71,8 @@ const Inventory = () => {
               <p className="text-sm text-gray-600 mb-1">Total Items</p>
               <p className="text-2xl font-bold text-gray-900">{totalItems}</p>
             </div>
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <FiPackage className="text-blue-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiPackage className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -77,8 +85,8 @@ const Inventory = () => {
                 {inventory.filter((i) => i.status === "in_stock").length}
               </p>
             </div>
-            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-              <FiPackage className="text-green-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiPackage className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -91,8 +99,8 @@ const Inventory = () => {
                 {lowStockItems}
               </p>
             </div>
-            <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-              <FiAlertTriangle className="text-yellow-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiAlertTriangle className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -105,8 +113,8 @@ const Inventory = () => {
                 {outOfStockItems}
               </p>
             </div>
-            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-              <FiAlertTriangle className="text-red-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiAlertTriangle className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -172,9 +180,9 @@ const Inventory = () => {
                   {new Date(item.lastRestocked).toLocaleDateString()}
                 </Table.Td>
                 <Table.Td>
-                  <Badge color={getStatusColor(item.status)}>
+                  <Text c={getStatusColor(item.status)}>
                     {item.status.replace("_", " ")}
-                  </Badge>
+                  </Text>
                 </Table.Td>
                 <Table.Td>
                   <Button variant="subtle" size="xs">

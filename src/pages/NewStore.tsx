@@ -32,9 +32,9 @@ const AriseAndShinePage = () => {
   };
 
   return (
-    <div className="px-9 pt-5">
+    <div className="px-9 pt-6">
       <div className="mb-10">
-        <h1 className="text-[25px] font-medium text-[#1D1D1D]">
+        <h1 className="text-[25px] font-medium text-primary-900">
           Arise and Shine Enterprise
         </h1>
       </div>
@@ -140,9 +140,9 @@ const AriseAndShinePage = () => {
         </Grid.Col>
       </Grid>
 
-      <div style={{ marginBottom: "16px", fontWeight: 700, fontSize: "18px" }}>
+      <Text mb={"16px"} fw={700} fz={"18px"}>
         Published Items
-      </div>
+      </Text>
 
       {/* Product Grid */}
       <SimpleGrid cols={getCols()} spacing="lg">

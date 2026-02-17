@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Card, Table, Badge, Button, Select, TextInput } from "@mantine/core";
+import {
+  Card,
+  Table,
+  Badge,
+  Button,
+  Select,
+  TextInput,
+  Text,
+} from "@mantine/core";
 import { payments } from "../data/dummyData";
 import { FiCreditCard, FiSearch, FiDownload, FiFilter } from "react-icons/fi";
 const Payment = () => {
@@ -44,7 +52,7 @@ const Payment = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">
+          <h1 className="text-2xl font-semibold text-primary-900">
             Payment Management
           </h1>
           <p className="text-gray-600 mt-1">
@@ -150,9 +158,9 @@ const Payment = () => {
                   {new Date(payment.date).toLocaleDateString()}
                 </Table.Td>
                 <Table.Td>
-                  <Badge color={getStatusColor(payment.status)}>
+                  <Text fw={500} c={getStatusColor(payment.status)}>
                     {payment.status}
-                  </Badge>
+                  </Text>
                 </Table.Td>
                 <Table.Td>
                   <Button variant="subtle" size="xs">

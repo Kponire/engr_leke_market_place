@@ -14,7 +14,7 @@ const Dashboard = () => {
   return (
     <div className="px-9 pt-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">
+        <h1 className="text-2xl font-semibold text-primary-900">
           Explore your business
         </h1>
       </div>
@@ -58,7 +58,7 @@ const Dashboard = () => {
       </Grid>
 
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-xl font-semibold text-primary-900 mb-4">
           Recent Activity
         </h2>
         <Grid gutter="md" style={{ background: "#F5F5F5" }}>
@@ -71,7 +71,7 @@ const Dashboard = () => {
       </div>
 
       <div className="flex justify-center">
-        <Button color={"#282828"} w={"252px"} h={"41px"} radius={"8px"}>
+        <Button color={"bright-green.9"} w={"252px"} h={"41px"} radius={"8px"}>
           View More
         </Button>
       </div>

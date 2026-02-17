@@ -1,4 +1,4 @@
-import { Card, Grid, Table, Badge } from "@mantine/core";
+import { Card, Grid, Table, Badge, Text } from "@mantine/core";
 import { orders } from "../data/dummyData";
 import {
   FiTrendingUp,
@@ -30,7 +30,7 @@ const Reporting = () => {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">
+        <h1 className="text-2xl font-semibold text-primary-900">
           Reporting & Analytics
         </h1>
         <p className="text-gray-600 mt-1">
@@ -48,8 +48,8 @@ const Reporting = () => {
                   ${totalRevenue.toFixed(2)}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                <FiDollarSign className="text-green-600 text-xl" />
+              <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                <FiDollarSign className="text-primary-900 text-xl" />
               </div>
             </div>
           </Card>
@@ -64,8 +64,8 @@ const Reporting = () => {
                   {orders.length}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <FiShoppingCart className="text-blue-600 text-xl" />
+              <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                <FiShoppingCart className="text-primary-900 text-xl" />
               </div>
             </div>
           </Card>
@@ -80,8 +80,8 @@ const Reporting = () => {
                   {completedOrders}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                <FiTrendingUp className="text-purple-600 text-xl" />
+              <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                <FiTrendingUp className="text-primary-900 text-xl" />
               </div>
             </div>
           </Card>
@@ -96,8 +96,8 @@ const Reporting = () => {
                   ${averageOrderValue.toFixed(2)}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                <FiUsers className="text-orange-600 text-xl" />
+              <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                <FiUsers className="text-primary-900 text-xl" />
               </div>
             </div>
           </Card>
@@ -105,7 +105,7 @@ const Reporting = () => {
       </Grid>
 
       <Card className="p-6" shadow="sm">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-xl font-semibold text-primary-900 mb-4">
           Recent Orders
         </h2>
         <Table striped highlightOnHover>
@@ -130,9 +130,9 @@ const Reporting = () => {
                   ${order.total.toFixed(2)}
                 </Table.Td>
                 <Table.Td>
-                  <Badge color={getStatusColor(order.status)}>
+                  <Text fw={700} c={getStatusColor(order.status)}>
                     {order.status}
-                  </Badge>
+                  </Text>
                 </Table.Td>
               </Table.Tr>
             ))}

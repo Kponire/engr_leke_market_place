@@ -8,6 +8,7 @@ import {
   Select,
   Textarea,
   Modal,
+  Text,
 } from "@mantine/core";
 import { supportTickets } from "../data/dummyData";
 import {
@@ -77,7 +78,7 @@ const Support = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">
+          <h1 className="text-2xl font-semibold text-primary-900">
             Customer Support
           </h1>
           <p className="text-gray-600 mt-1">
@@ -102,8 +103,8 @@ const Support = () => {
                 {supportTickets.length}
               </p>
             </div>
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-              <FiHeadphones className="text-purple-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiHeadphones className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -114,8 +115,8 @@ const Support = () => {
               <p className="text-sm text-gray-600 mb-1">Open</p>
               <p className="text-2xl font-bold text-blue-600">{openTickets}</p>
             </div>
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <FiMessageSquare className="text-blue-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiMessageSquare className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -128,8 +129,8 @@ const Support = () => {
                 {inProgressTickets}
               </p>
             </div>
-            <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-              <FiHeadphones className="text-yellow-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiHeadphones className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -140,8 +141,8 @@ const Support = () => {
               <p className="text-sm text-gray-600 mb-1">Urgent</p>
               <p className="text-2xl font-bold text-red-600">{urgentTickets}</p>
             </div>
-            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-              <FiMessageSquare className="text-red-600 text-xl" />
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <FiMessageSquare className="text-primary-900 text-xl" />
             </div>
           </div>
         </Card>
@@ -206,14 +207,14 @@ const Support = () => {
                 <Table.Td>{ticket.customer}</Table.Td>
                 <Table.Td>{ticket.subject}</Table.Td>
                 <Table.Td>
-                  <Badge color={getPriorityColor(ticket.priority)}>
+                  <Text c={getPriorityColor(ticket.priority)}>
                     {ticket.priority}
-                  </Badge>
+                  </Text>
                 </Table.Td>
                 <Table.Td>
-                  <Badge color={getStatusColor(ticket.status)}>
+                  <Text c={getStatusColor(ticket.status)}>
                     {ticket.status.replace("_", " ")}
-                  </Badge>
+                  </Text>
                 </Table.Td>
                 <Table.Td>
                   {new Date(ticket.createdAt).toLocaleDateString()}

@@ -1,0 +1,46 @@
+.publishLocationSelect::placeholder {
+  color: var(--color-secondary);
+}
+
+.navButton {
+  position: relative;
+  padding: 12px 26px;
+  font-size: 17px;
+  color: white;
+}
+
+.navButton:hover {
+  background-color: var(--color-primary-900);
+}
+
+.navButtonActive {
+  position: relative;
+  padding: 12px 26px;
+  font-size: 17px;
+  color: var(--color-primary-900);
+  background-color: white;
+}
+
+.navButtonSibling {
+  padding: 8px 16px;
+  color: white;
+  border-radius: 1px;
+}
+
+.navButtonSibling:hover {
+  background-color: var(--color-primary-900);
+}
+
+.navButtonSibling.active {
+  background-color: var(--color-primary-900);
+}
+
+.navButtonActive::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: var(--color-primary-900);
+}
